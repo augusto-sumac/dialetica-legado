@@ -1,0 +1,17 @@
+{
+    "require": {
+        "ext-intl": "*",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "ext-xml": "*",
+        "ext-zip": "*",
+        "ext-curl": "*",
+        "convertapi/convertapi-php": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Models\\": "./app/models/"
+        }
+    }
+}

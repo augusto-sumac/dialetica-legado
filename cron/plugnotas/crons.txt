@@ -1,0 +1,3 @@
+DEV
+/home/dialeticaautores/public_html/cron/plugnotas/process_create_invoices.sh
+/home/dialeticaautores/public_html/cron/plugnotas/process_update_invoices_status.sh

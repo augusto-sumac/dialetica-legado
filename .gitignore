@@ -1,0 +1,13 @@
+storage/**/*
+storage/logs/**
+public/uploads/**
+.vscode
+.DS_Store
+app/.DS_Store
+public/.DS_Store
+notes
+.env
+.env.dev
+plugnotas/cron/logs
+dbml-error.log
+mysql_backup.sh

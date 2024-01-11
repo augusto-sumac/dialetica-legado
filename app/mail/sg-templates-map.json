@@ -1,0 +1,315 @@
+[
+    {
+        "id": "d-b267feb0478a43d5aa5b2e0edc7e292c",
+        "name": "Plataforma - Revisão concluída (Enviar pelo e-mail assessoria@editoradialetica.com)",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_trabalho",
+                "value": "{{ $article_title }}"
+            }
+        ],
+        "from": {
+            "email": "assessoria@editoradialetica.com",
+            "name": "Ludmila Pena"
+        }
+    },
+    {
+        "id": "d-ef0dfce673a045668c41cf1efdd1f44c",
+        "name": "Plataforma - Revisão submetida (Enviar pelo e-mail assessoria@editoradialetica.com)",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_trabalho",
+                "value": "{{ $article_title }}"
+            }
+        ],
+        "from": {
+            "email": "assessoria@editoradialetica.com",
+            "name": "Ludmila Pena"
+        }
+    },
+    {
+        "id": "d-77a23f82c2894e83a7a30a228fe9c265",
+        "name": "Plataforma - Artigo publicado",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_trabalho",
+                "value": "{{ $article_title }}"
+            },
+            {
+                "key": "titulo_coletanea",
+                "value": "{{ $collection_name }}"
+            },
+            {
+                "key": "DOI_coletanea",
+                "value": "{{ $collection_doi }}"
+            },
+            {
+                "key": "ISBN_fisico",
+                "value": "{{ $article_isbn }}"
+            },
+            {
+                "key": "ISBN_ebook",
+                "value": "{{ $article_isbn_e_book }}"
+            },
+            {
+                "key": "DOI_artigo",
+                "value": "{{ $article_doi }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-47ff0e722740468f878f5f21a9ee5426",
+        "name": "Plataforma - Coletânea em processo de produção",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_coletanea",
+                "value": "{{ $collection_name }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "pending": true,
+        "id": "d-1a356757e6a8490d9abf701efa68c00d",
+        "name": "Plataforma - Organizador convidado",
+        "vars": [
+            {
+                "key": "convidado_first_name",
+                "value": "{{ $invited_author_name }}"
+            },
+            {
+                "key": "unique_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_coletanea",
+                "value": "{{ $collection_name }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-1628a4e4c0b344ff9a379e6627878b50",
+        "name": "Plataforma -  Novo artigo para avaliação",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_coletanea",
+                "value": "{{ $collection_name }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-ef50cdb29cdb4a9490c9f94707690ae8",
+        "name": "Plataforma - Coletânea reprovada",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_coletanea",
+                "value": "{{ $collection_name }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-b7bb155d8d6f415380558ff22b880d68",
+        "name": "Plataforma - Proposta de Coletânea submetida",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_coletanea",
+                "value": "{{ $collection_name }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-e32f61376798464bbc1a1e77055b373d",
+        "name": "Plataforma - Coletânea não atingiu o limite mínimo de artigos",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_coletanea",
+                "value": "{{ $collection_name }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-7082253d1e5b42cc99e8626c24a02051",
+        "name": "Plataforma - Proposta de coletânea aprovada",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_coletanea",
+                "value": "{{ $collection_name }}"
+            },
+            {
+                "key": "link_coletanea",
+                "value": "{{ $collection_link }}"
+            },
+            {
+                "key": "cupom_autor",
+                "value": "{{ $author_coupon }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-35682a76b9554aeba76aa46caccfb385",
+        "name": "Plataforma - Erro no pagamento",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-8812fb637e054e54845c47546fad3f76",
+        "name": "Plataforma - Artigo recusado",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_trabalho",
+                "value": "{{ $article_title }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-95822ef0355549a4a5dab83901cf7262",
+        "name": "Plataforma - Confirmação de pagamento de artigo",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_trabalho",
+                "value": "{{ $article_title }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-2b82fb7a6ab44533991d708fc9cdf24b",
+        "name": "Plataforma - Novo artigo submetido",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_trabalho",
+                "value": "{{ $article_title }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-3c708bf9614a4c328d53199e405682d1",
+        "name": "Plataforma - Artigo aprovado / Pagamento pendente",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            },
+            {
+                "key": "titulo_trabalho",
+                "value": "{{ $article_title }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    },
+    {
+        "id": "d-6a3c7b756efd46fc838eea7b6b63ef9c",
+        "name": "Plataforma - Novo cadastro - Boas-vindas",
+        "vars": [
+            {
+                "key": "first_name",
+                "value": "{{ $author_name }}"
+            }
+        ],
+        "from": {
+            "email": "lucas.martins@editoradialetica.com",
+            "name": "Lucas Martins"
+        }
+    }
+]

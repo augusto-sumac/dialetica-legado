@@ -1,0 +1,2 @@
+DEV
+/home/dialeticaautores/public_html/cron/cielo/process_create_payments.sh

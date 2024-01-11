@@ -1,0 +1,23 @@
+### DEV/TESTS ###
+
+# Jobs
+*/5 * * * * /var/www/dev-plataforma.editoradialetica.com/cron/jobs/process_jobs.sh
+
+# Payments 
+# */5 * * * * /var/www/dev-plataforma.editoradialetica.com/cron/cielo/process_create_payments.sh
+
+# Invoices
+*/5 * * * * /var/www/dev-plataforma.editoradialetica.com/cron/plugnotas/process_create_invoices.sh
+*/5 * * * * /var/www/dev-plataforma.editoradialetica.com/cron/plugnotas/process_update_invoices_status.sh
+
+### PRODUCTION ###
+
+# Jobs
+*/5 * * * * /var/www/plataforma.editoradialetica.com/cron/jobs/process_jobs.sh
+
+# Payments 
+# */5 * * * * /var/www/plataforma.editoradialetica.com/cron/cielo/process_create_payments.sh
+
+# Invoices
+*/5 * * * * /var/www/plataforma.editoradialetica.com/cron/plugnotas/process_create_invoices.sh
+*/5 * * * * /var/www/plataforma.editoradialetica.com/cron/plugnotas/process_update_invoices_status.sh

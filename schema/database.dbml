@@ -1,0 +1,213 @@
+// Platform users and authors registration
+Table users {
+    id "bigint(20)" [pk, increment]
+    type varchar(30) [not null, default: 'user', note: 'user or author']
+    email varchar(255) [not null]
+    name varchar(150) [not null]
+    document varchar(30) [null, default: null, note: 'Only numbers CPF/CNPJ']
+    phone varchar(20) [null, default: null, note: 'Only numbers phone']
+    role longtext [null, default: null, note: 'Doutor, Gerente, etc']
+    roles json [null, default: null]
+    password varchar(255) [not null]
+    recovery_password_token varchar(20) [null, default: null]
+    accept_eula tinyint(1) [null, default: null, note: 'null, 0 - false, 1 - true']
+    status tinyint(1) [not null, default: 1, note: '0 - Inactive, 1 - Active']
+    access_count "bigint(20)" [not null, default: 0]
+    photo_path varchar(255) [null, default: null, note: 'CDN photo path']
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+
+    Indexes {
+        (type, email) [unique, name: 'users_unique_type_email']
+    }
+}
+
+// Authors address 
+Table users_addresses {
+    id "bigint(20)" [pk, increment]
+    user_id "bigint(20)" [null, default: null, ref: > users.id]
+    zip_code varchar(20) [null, default: null]
+    street varchar(150) [null, default: null]
+    number varchar(30) [null, default: null]
+    district varchar(100) [null, default: null]
+    complement varchar(150) [null, default: null]
+    city_ibge_id "bigint(20)" [null, default: null]
+    city varchar(150) [null, default: null]
+    state varchar(2) [null, default: null]
+    status tinyint(1) [not null, default: 1, note: '0 - Inactive, 1 - Active']
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+
+    Indexes {
+        (user_id, zip_code) [unique, name: 'users_addresses_unique_zip_code']
+    }
+}
+
+// Platform articles registration
+Table articles {
+    id "bigint(20)" [pk, increment]
+    type_id "bigint(20)" [null, ref: > articles_types.id]
+    area_id "bigint(20)" [null, ref: > articles_areas.id]
+    collection_id "bigint(20)" [null, ref: > articles_collections.id]
+    subarea_id "bigint(20)" [null, ref: > articles_subareas.id]
+    specialty_id "bigint(20)" [null, ref: > articles_specialties.id]
+    author_id "bigint(20)" [not null, ref: > users.id]
+    author_address_id "bigint(20)" [null, default: null, ref: > users_addresses.id]
+    payment_id "bigint(20)" [null, default: null, ref: > articles_integrations_services.id]
+    invoice_id "bigint(20)" [null, default: null, ref: > articles_integrations_services.id]
+    title varchar(255) [not null]
+    resume longtext [null, default: null]
+    tags mediumtext [null, default: null]
+    words_count int(11) [null, default: null]
+    amount decimal(10,2) [null, default: null]
+    accept_contract tinyint(1) [not null, default: 0, note: '0 - false, 1 - true']
+    accept_publication_rules tinyint(1) [not null, default: 0, note: '0 - false, 1 - true']
+    attachment varchar(255) [null, default: null, note: 'json attachment data']
+    proof_attachment varchar(255) [null, default: null, note: 'json attachment data']
+    final_attachment varchar(255) [null, default: null, note: 'json attachment data']
+    stage varchar(20) [not null, default: 'draft']
+    status int(2) [not null, default: 0, note: '0 - Draft, ...']
+    store_url mediumtext [null, default: null]
+    store_coupon varchar(50) [null, default: null]
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+}
+
+// Platform aticles types registration
+// - price_rule set price definition rule
+Table articles_types {
+    id "bigint(20)" [pk, increment]
+    name varchar(150) [not null]
+    price decimal(10,2) [not null, default: 0]
+    price_rule varchar(20) [not null, default: 'fixed', note: 'fixed, words']
+    minimum_price decimal(10,2) [not null, default: 0]
+    status tinyint(1) [not null, default: 1, note: '0 - Inactive, 1 - Active']
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+
+    Indexes {
+        (name) [unique, name: 'articles_types_unique_name']
+    }
+}
+
+// Platform articles areas taxonomy registration
+Table articles_areas {
+    id "bigint(20)" [pk, increment]
+    name varchar(150) [not null]
+    status tinyint(1) [not null, default: 1, note: '0 - Inactive, 1 - Active']
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+
+    Indexes {
+        (name) [unique, name: 'articles_areas_unique_name']
+    }
+}
+
+// Platform articles collection(coletânea) taxonomy registration
+Table articles_collections {
+    id "bigint(20)" [pk, increment]
+    area_id "bigint(20)" [not null, ref: > articles_areas.id]
+    name varchar(150) [not null]
+    status tinyint(1) [not null, default: 1, note: '0 - Inactive, 1 - Active']
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+
+    Indexes {
+        (area_id, name) [unique, name: 'articles_collections_unique_area_id_name']
+    }
+}
+
+// Platform articles subareas taxonomy registration
+Table articles_subareas {
+    id "bigint(20)" [pk, increment]
+    area_id "bigint(20)" [not null, ref: > articles_areas.id]
+    name varchar(150) [not null]
+    status tinyint(1) [not null, default: 1, note: '0 - Inactive, 1 - Active']
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+
+    Indexes {
+        (area_id, name) [unique, name: 'articles_subareas_unique_area_id_name']
+    }
+}
+
+// Platform articles specialties taxonomy registration
+Table articles_specialties {
+    id "bigint(20)" [pk, increment]
+    area_id "bigint(20)" [not null, ref: > articles_areas.id]
+    subarea_id "bigint(20)" [not null, ref: > articles_subareas.id]
+    name varchar(150) [not null]
+    status tinyint(1) [not null, default: 1, note: '0 - Inactive, 1 - Active']
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+
+    Indexes {
+        (area_id, subarea_id, name) [unique, name: 'articles_specialties_unique_area_id_subarea_id_name']
+    }
+}
+
+// Platform articles coauthors registration
+Table articles_coauthors {
+    id "bigint(20)" [pk, increment]
+    article_id "bigint(20)" [not null, ref: > articles.id]
+    name varchar(150) [not null]
+    email varchar(255) [not null]
+    role longtext [null, default: null, note: 'Doutor, Gerente, etc']
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+}
+
+// Platform articles integration service registration
+//     - type
+//        - payment -> Cielo integration
+//        - invoice -> PlugNotas integration
+Table articles_integrations_services {
+    id "bigint(20)" [pk, increment]
+    user_id "bigint(20)" [null, default: null, ref: > users.id]
+    type varchar(20) [not null, note: 'payment, invoice']
+    operation varchar(20) [not null, note: 'create, cancel']
+    source varchar(20) [not null, default: 'articles', note: 'Source table']
+    source_id "bigint(20)" [not null, note: 'Source table ID']
+    service varchar(50) [not null, default: 'Cielo, PlugNotas']
+    service_id varchar(50) [null, default: null, note: 'Service response ID']
+    service_status varchar(50) [null, default: null, note: 'Service response status']
+    service_request_payload json [null, default: null, note: 'Service request payload']
+    service_response_payload json [null, default: null, note: 'Service response payload']
+    started_at datetime [null, default: null]
+    finished_at datetime [null, default: null]
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+}
+
+Table settings {
+    key varchar(100) [pk]
+    value longtext [null, default: null]
+
+    Indexes {
+        (key) [unique, name: 'settings_unique_key']
+    }
+}
+
+Table jobs {
+    id "bigint(20)" [pk, increment]
+    user_id "bigint(20)" [null, default: null, ref: > users.id]
+    job varchar(255) [not null]
+    data json [not null]
+    status tinyint(1) [not null, default: 0, note: '0 -> pending, 1 -> finished, 2 -> error'] 
+    error longtext [null, default: null]
+    started_at datetime [null, default: null]
+    finished_at datetime [null, default: null]
+    created_at timestamp [not null, default: `current_timestamp()`]
+    updated_at timestamp [not null, default: `current_timestamp() on update current_timestamp()`]
+    deleted_at datetime [null, default: null]
+}

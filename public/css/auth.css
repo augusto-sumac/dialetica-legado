@@ -1,0 +1,78 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  min-width: 100%;
+  -webkit-tap-highlight-color: rgba(18, 38, 63, 0);
+  background-color: #303641;
+  color: #ffff;
+}
+
+.text-muted {
+  color: rgba(255, 255, 255, 70%) !important;
+  
+}
+
+html,
+body,
+body.swal2-height-auto,
+#app {
+  min-height: 100% !important;
+  min-width: 100% !important;
+}
+body.swal2-height-auto {
+  height: 100% !important;
+  width: 100% !important;
+}
+.container-fluid {
+    max-width: 400px;
+    padding: 0 2rem;
+}
+.app-logo {
+    width: 80%;
+    max-width: 380px;
+    border-radius: .5rem;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.app-authors,
+.app-authors body {
+  background-color: #7B1B27;
+}
+
+.app-authors .btn-primary {
+  background:linear-gradient(to bottom, #F8931F 5%, #f2ab1e 100%) !important;
+  background-color: #F8931F !important;
+  border-color: #F8931F !important;
+  color: #fff !important;
+  -webkit-transition: all 150ms ease-in-out !important;
+  transition: all 150ms ease-in-out !important;
+}
+
+.app-authors .btn-check:focus + .btn-primary,
+.app-authors .btn-primary:focus,
+.app-authors .btn-primary:hover {
+  color: #fff !important;
+  border-color: #E9840F !important;
+  background:linear-gradient(to bottom, #E9840F 5%, #E9840F 100%) !important;
+}
+
+.app-authors .btn-secondary {
+  background-color: #5E161F !important;
+  border-color: rgba(255, 255, 255, 40%) !important;
+  color: #fff !important;  
+  
+}
+.app-authors .btn-check:focus + .btn-secondary,
+.app-authors .btn-secondary:focus,
+.app-authors .btn-secondary:hover {
+  background-color: #67181E !important;
+  color: #fff !important;
+  box-shadow: 0 0 40px 40px #67181E inset, 0 0 0 0 #67181E !important;
+  -webkit-transition: all 150ms ease-in-out !important;
+  transition: all 150ms ease-in-out !important;
+}
+
